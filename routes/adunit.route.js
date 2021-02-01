@@ -48,6 +48,8 @@ adUnitRoutes.route('/update/:id').post(function (req, res) {
     else {
         adUnit.unit_name = req.body.unit_name;
         adUnit.unit_price = req.body.unit_price;
+        adUnit.unit_dec = req.body.unit_dec;
+        adUnit.unit_qty = req.body.unit_qty;
 
         adUnit.save().then(adUnit => {
           res.json('Update complete');

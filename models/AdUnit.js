@@ -10,6 +10,12 @@ let AdUnit = new Schema({
   },
   unit_price: {
     type: Number
+  },
+  unit_dec : {
+    type: String
+  },
+  unit_qty: {
+    type: Number
   }
 },{
     collection: 'adunits'

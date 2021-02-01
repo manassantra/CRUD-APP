@@ -22,7 +22,26 @@
           </div>
         </div>
         <div class="form-group">
-          <button (click)="updateAdUnit(unit_name.value, unit_price.value)" [disabled]="angForm.invalid" class="btn btn-primary">Update Unit</button>
+          <label class="col-md-4">Unit Description</label>
+          <input type="text" class="form-control" name="unit_dec" formControlName="unit_dec" #unit_dec [(ngModel)] = "adunit.unit_dec" />
+        </div>
+        <div *ngIf="angForm.controls['unit_dec'].invalid && (angForm.controls['unit_dec'].dirty || angForm.controls['unit_dec'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['unit_dec'].errors.required">
+            Unit Description is required.
+          </div>
+        </div>
+       
+        <div class="form-group">
+          <label class="col-md-4">Unit Qty</label>
+          <input type="text" class="form-control" name="unit_qty" formControlName="unit_qty" #unit_qty [(ngModel)] = "adunit.unit_qty"/>
+        </div>
+        <div *ngIf="angForm.controls['unit_qty'].invalid && (angForm.controls['unit_qty'].dirty || angForm.controls['unit_qty'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['unit_qty'].errors.required">
+            Unit Qty is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <button (click)="updateAdUnit(unit_name.value, unit_price.value, unit_dec.value, unit_qty.value)" [disabled]="angForm.invalid" class="btn btn-primary">Update Unit</button>
         </div>
       </form>
     </div>

@@ -13,11 +13,13 @@ export class AdunitService {
 
   constructor(private http: HttpClient) { }
 
-  addAdUnit(unit_name, unit_price) {
+  addAdUnit(unit_name, unit_price, unit_dec, unit_qty) {
     const obj = {
-      unit_name: unit_name,
-      unit_price: unit_price
-    };
+          unit_name: unit_name,
+          unit_price: unit_price,
+          unit_dec: unit_dec,
+          unit_qty: unit_qty
+        };
     this.http.post(`${this.uri}/add`, obj)
         .subscribe(res => console.log('Done'));
   }
@@ -34,17 +36,21 @@ export class AdunitService {
                 .get(`${this.uri}/edit/${id}`);
       }
 
-      updateAdUnit(unit_name, unit_price, id) {
+    
 
-        const obj = {
-          unit_name: unit_name,
-          unit_price: unit_price
-        };
-        this
-          .http
-          .post(`${this.uri}/update/${id}`, obj)
-          .subscribe(res => console.log('Done'));
-      }
+updateAdUnit(unit_name, unit_price, unit_dec, unit_qty, id) {
+
+  const obj = {
+    unit_name: unit_name,
+    unit_price: unit_price,
+    unit_dec: unit_dec,
+    unit_qty: unit_qty
+  };
+  this
+    .http
+    .post(`${this.uri}/update/${id}`, obj)
+    .subscribe(res => console.log('Done'));
+}
 
       deleteAdUnit(id) {
         return this
