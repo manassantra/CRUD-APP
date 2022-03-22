@@ -1,6 +1,6 @@
 // index.component.ts
 import {  Router } from '@angular/router';
-
+import { Subject } from "rxjs";
 import { Component, OnInit } from '@angular/core';
 import { AdUnit } from './AdUnit';
 import { AdunitService } from '../../adunit.service';
@@ -20,7 +20,6 @@ export class IndexComponent implements OnInit {
   deleteAdUnit(id) {
     this.adunitservice.deleteAdUnit(id).subscribe(res => {
       console.log('Deleted');
-      
     });
   }
  
